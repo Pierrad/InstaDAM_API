@@ -1,6 +1,8 @@
+const { faker } = require('@faker-js/faker');
 const httpStatus = require('http-status');
-const { User } = require('../models');
+const { User, Token, Image } = require('../models');
 const ApiError = require('../utils/ApiError');
+const { getRandomLocation } = require('../utils/geolocation');
 
 /**
  * Create a user
@@ -47,6 +49,23 @@ const getUserByEmail = async (email) => {
 };
 
 /**
+ * Get user by token
+ * @param {string} token
+ * @returns {Promise<User>}
+ */
+const getUserByToken = async (token) => {
+  const tokenObject = await Token.findOne({ token });
+  if (!tokenObject) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Token not found');
+  }
+  const user = await getUserById(tokenObject.user);
+  if (!user) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+  }
+  return user;
+};
+
+/**
  * Update user by id
  * @param {ObjectId} userId
  * @param {Object} updateBody
@@ -79,11 +98,42 @@ const deleteUserById = async (userId) => {
   return user;
 };
 
+const generateUsersWithImages = async () => {
+  const fakeUsers = [...Array(100)].map(() => ({
+    name: faker.name.fullName(),
+    email: faker.internet.email(),
+    password: 'Azerty12',
+  }));
+
+  const users = await User.insertMany(fakeUsers);
+
+  const storageImage = 'storage/fake/image';
+  const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+  await Promise.all(
+    users.map(async (user) => {
+      const fakeImages = [...Array(10)].map(() => ({
+        name: faker.lorem.words(),
+        description: faker.lorem.sentence(),
+        path: `${storageImage}${random(1, 10)}.jpg`,
+        geolocation: {
+          type: 'Point',
+          coordinates: getRandomLocation(100), // 100km
+        },
+        userId: user._id,
+      }));
+      await Image.insertMany(fakeImages);
+    })
+  );
+};
+
 module.exports = {
   createUser,
   queryUsers,
   getUserById,
   getUserByEmail,
+  getUserByToken,
   updateUserById,
   deleteUserById,
+  generateUsersWithImages,
 };

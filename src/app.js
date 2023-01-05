@@ -6,6 +6,7 @@ const compression = require('compression');
 const cors = require('cors');
 const passport = require('passport');
 const httpStatus = require('http-status');
+const bodyParser = require('body-parser');
 const config = require('./config/config');
 const morgan = require('./config/morgan');
 const { jwtStrategy } = require('./config/passport');
@@ -25,10 +26,12 @@ if (config.env !== 'test') {
 app.use(helmet());
 
 // parse json request body
-app.use(express.json());
+app.use(bodyParser.json());
 
 // parse urlencoded request body
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded());
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // sanitize request data
 app.use(xss());

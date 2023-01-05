@@ -1,0 +1,332 @@
+_type: export
+__export_format: 4
+__export_date: 2023-01-05T13:41:40.668Z
+__export_source: insomnia.desktop.app:v2022.7.0
+resources:
+  - _id: req_8a1ffc6d815d4cb7b53f755ef2b5ebc7
+    parentId: fld_997141af0a9440a2ac924954e3ec4722
+    modified: 1672925740890
+    created: 1672923985959
+    url: "{{ _.url }}/v1/users/generate"
+    name: GenerateFakeUsers
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_9c2ba14c780d45e0b778e9676999ed48
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzI5MjU3MzIsImV4cCI6MTY3Mzc4OTczMiwidHlwZSI6ImFjY2VzcyJ9.hr66kIGyBbHu6Jnk80j-TCxsAti-t1XQUJyCzST8sdo
+        description: ""
+    authentication: {}
+    metaSortKey: -1672923985959
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_997141af0a9440a2ac924954e3ec4722
+    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
+    modified: 1672923984269
+    created: 1672923984269
+    name: Fake
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1672923984269
+    _type: request_group
+  - _id: wrk_81557c150fd64c4d8eec589805fe9dfe
+    parentId: null
+    modified: 1672905216676
+    created: 1672905216676
+    name: InstaDAM
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_ef8c44d7916147c8b06531050e917d1d
+    parentId: fld_b648b0839d4d433989df138393e60836
+    modified: 1672915660053
+    created: 1672915579341
+    url: "{{ _.url }}/v1/images/user/63b682bddb63a6ac003c522d"
+    name: GetImagesByUserID
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_bba32e1d6f9c4f3aba6b7885ac5f469e
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ODJiZGRiNjNhNmFjMDAzYzUyMmQiLCJpYXQiOjE2NzI5MTEzOTgsImV4cCI6MTY3Mzc3NTM5OCwidHlwZSI6ImFjY2VzcyJ9.8eikPLOedA9pT2SdcBdF1yYqSaiX3QXEHaEJe4aLuPs
+        description: ""
+    authentication: {}
+    metaSortKey: -1672915579341
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_b648b0839d4d433989df138393e60836
+    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
+    modified: 1672912356089
+    created: 1672912356089
+    name: Images
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1672912356089
+    _type: request_group
+  - _id: req_2a4fdd60e2cf405e887b681f8be7b929
+    parentId: fld_b648b0839d4d433989df138393e60836
+    modified: 1672925914350
+    created: 1672914470508
+    url: "{{ _.url }}/v1/images/geolocation"
+    name: GetImagesByGeolocation
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"latitude": 43.34,
+        	"longitude": 7.1
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d5f12d176c784d64b193559c656fd0f6
+      - id: pair_b20caa3c466d4ec590ab328b3bf740bc
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzI5MjU3MzIsImV4cCI6MTY3Mzc4OTczMiwidHlwZSI6ImFjY2VzcyJ9.hr66kIGyBbHu6Jnk80j-TCxsAti-t1XQUJyCzST8sdo
+        description: ""
+    authentication: {}
+    metaSortKey: -1672914470508
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cb2149e8aa604345a7f38a587d6dba23
+    parentId: fld_b648b0839d4d433989df138393e60836
+    modified: 1672925813983
+    created: 1672909150672
+    url: "{{ _.url }}/v1/images/"
+    name: UploadImage
+    description: ""
+    method: POST
+    body:
+      mimeType: multipart/form-data
+      params:
+        - id: pair_4e1f06cfefcc4c49942f3e262b8122f3
+          name: name
+          value: test
+          description: ""
+        - id: pair_43ebddf7876a405194342c6afa403975
+          name: description
+          value: testd des
+          description: ""
+        - id: pair_5fe45731287447deafc98a4a3e858dd4
+          name: image
+          value: ""
+          description: ""
+          type: file
+          fileName: /Users/pavasseur/Downloads/image.png
+        - id: pair_fbbcf1a0ea8f402a9f3fd09d3eecdeae
+          name: geolocation
+          value: '{ "latitude": 43.6164999, "longitude": 7.0723416 }'
+          description: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_66e8ceecbd5b48cdb8746c8868ac45f1
+      - id: pair_291245af398f4ffdb65022584cce405b
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzI5MjU3MzIsImV4cCI6MTY3Mzc4OTczMiwidHlwZSI6ImFjY2VzcyJ9.hr66kIGyBbHu6Jnk80j-TCxsAti-t1XQUJyCzST8sdo
+        description: ""
+    authentication: {}
+    metaSortKey: -1672909150672
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6d426e5bd8e4494b870035d3ec4698d1
+    parentId: fld_b648b0839d4d433989df138393e60836
+    modified: 1672915265213
+    created: 1672912467228
+    url: "{{ _.url }}/v1/images/63b6a93d56df1d52a734dd29"
+    name: GetImage
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_11c6f921fb2641b0b55a666ee73b87f3
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ODJiZGRiNjNhNmFjMDAzYzUyMmQiLCJpYXQiOjE2NzI5MTEzOTgsImV4cCI6MTY3Mzc3NTM5OCwidHlwZSI6ImFjY2VzcyJ9.8eikPLOedA9pT2SdcBdF1yYqSaiX3QXEHaEJe4aLuPs
+        description: ""
+    authentication: {}
+    metaSortKey: -1672909150622
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2b7646a2a1074cd69159ed12d64a97e3
+    parentId: fld_0a51d0339d894b418203aa14a4c30abc
+    modified: 1672905426168
+    created: 1672905262786
+    url: "{{ _.url }}/v1/auth/register"
+    name: Register
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Vasseur Pierre-Adrien",
+        	"email": "test@test.com",
+        	"password": "Azerty12"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1672905262786
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0a51d0339d894b418203aa14a4c30abc
+    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
+    modified: 1672905261805
+    created: 1672905261805
+    name: Auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1672905261805
+    _type: request_group
+  - _id: req_a27da4ed2bd4486396a7b263dabde76d
+    parentId: fld_0a51d0339d894b418203aa14a4c30abc
+    modified: 1672905468067
+    created: 1672905434965
+    url: "{{ _.url }}/v1/auth/login"
+    name: Login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "test@test.com",
+        	"password": "Azerty12"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1672905262736
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_93cf9c86ff4148ffa59ea0f8092f5e5b
+    parentId: fld_0a51d0339d894b418203aa14a4c30abc
+    modified: 1672906214274
+    created: 1672905473565
+    url: "{{ _.url }}/v1/auth/me"
+    name: Me
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ODJiZGRiNjNhNmFjMDAzYzUyMmQiLCJpYXQiOjE2NzI5MDYwNzEsImV4cCI6MjkxNzA2MjQ3MSwidHlwZSI6InJlZnJlc2gifQ.eN8CnI6eD2g--wpWYJiY1sVxKbyyO9up6-lydGcxISo"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1672905262686
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_24b42c4bf80472a041a1cacc1640c918841be6ff
+    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
+    modified: 1672905246884
+    created: 1672905216678
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: {}
+    color: null
+    isPrivate: false
+    metaSortKey: 1672905216678
+    _type: environment
+  - _id: jar_24b42c4bf80472a041a1cacc1640c918841be6ff
+    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
+    modified: 1672905216679
+    created: 1672905216679
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_ac9eedcb10db491bbb049ac3c88634bf
+    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
+    modified: 1672905216677
+    created: 1672905216677
+    fileName: InstaDAM
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_f21136077d0742c5a5b17918642df6cf
+    parentId: env_24b42c4bf80472a041a1cacc1640c918841be6ff
+    modified: 1672905254044
+    created: 1672905247770
+    name: Local
+    data:
+      url: http://localhost:3000
+    dataPropertyOrder:
+      "&":
+        - url
+    color: null
+    isPrivate: false
+    metaSortKey: 1672905247770
+    _type: environment

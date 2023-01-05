@@ -20,6 +20,19 @@ const loginUserWithEmailAndPassword = async (email, password) => {
 };
 
 /**
+ * Login with token
+ * @param {string} token
+ * @returns {Promise<User>}
+ */
+const loginUserWithToken = async (token) => {
+  const user = await userService.getUserByToken(token);
+  if (!user) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect token');
+  }
+  return user;
+};
+
+/**
  * Logout
  * @param {string} refreshToken
  * @returns {Promise}
@@ -92,6 +105,7 @@ const verifyEmail = async (verifyEmailToken) => {
 
 module.exports = {
   loginUserWithEmailAndPassword,
+  loginUserWithToken,
   logout,
   refreshAuth,
   resetPassword,
