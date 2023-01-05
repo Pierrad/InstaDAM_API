@@ -9,6 +9,7 @@ COPY package.json yarn.lock ./
 USER node
 
 RUN yarn install --pure-lockfile
+RUN yarn global add pm2
 
 COPY --chown=node:node . .
 
