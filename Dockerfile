@@ -1,15 +1,18 @@
-FROM node:alpine
+FROM node:16.17.0-alpine
 
-RUN mkdir -p /usr/src/node-app && chown -R node:node /usr/src/node-app
+RUN mkdir -p /usr/instadam && chown -R node:node /usr/instadam
 
-WORKDIR /usr/src/node-app
+WORKDIR /usr/instadam
 
 COPY package.json yarn.lock ./
+
+USER root
+
+RUN yarn global add pm2
 
 USER node
 
 RUN yarn install --pure-lockfile
-RUN yarn global add pm2
 
 COPY --chown=node:node . .
 

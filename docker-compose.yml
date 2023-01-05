@@ -11,7 +11,8 @@ services:
     depends_on:
       - mongodb
     volumes:
-      - .:/usr/src/node-app
+      - .:/usr/instadam
+      - /usr/instadam/node_modules
     networks:
       - node-network
 
