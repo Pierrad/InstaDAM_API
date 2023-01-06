@@ -13,5 +13,6 @@ router
   .route('/geolocation')
   .post(auth('getImage'), validate(imageValidation.getImagesByGeolocation), imageController.getImagesByGeolocation);
 router.route('/user/:userId').get(auth('getImage'), imageController.getImagesByUserId);
+router.route('/:imageId').delete(auth('deleteImage'), imageController.deleteImage);
 
 module.exports = router;

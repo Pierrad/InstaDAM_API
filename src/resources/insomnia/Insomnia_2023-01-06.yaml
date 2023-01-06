@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2023-01-05T13:41:40.668Z
+__export_date: 2023-01-06T12:48:03.266Z
 __export_source: insomnia.desktop.app:v2022.7.0
 resources:
   - _id: req_8a1ffc6d815d4cb7b53f755ef2b5ebc7
@@ -120,7 +120,7 @@ resources:
     _type: request
   - _id: req_cb2149e8aa604345a7f38a587d6dba23
     parentId: fld_b648b0839d4d433989df138393e60836
-    modified: 1672925813983
+    modified: 1673009093509
     created: 1672909150672
     url: "{{ _.url }}/v1/images/"
     name: UploadImage
@@ -142,7 +142,7 @@ resources:
           value: ""
           description: ""
           type: file
-          fileName: /Users/pavasseur/Downloads/image.png
+          fileName: /Users/pavasseur/Downloads/BBS/bbs.png
         - id: pair_fbbcf1a0ea8f402a9f3fd09d3eecdeae
           name: geolocation
           value: '{ "latitude": 43.6164999, "longitude": 7.0723416 }'
@@ -155,7 +155,7 @@ resources:
       - id: pair_291245af398f4ffdb65022584cce405b
         name: Authorization
         value: Bearer
-          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzI5MjU3MzIsImV4cCI6MTY3Mzc4OTczMiwidHlwZSI6ImFjY2VzcyJ9.hr66kIGyBbHu6Jnk80j-TCxsAti-t1XQUJyCzST8sdo
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzMwMDkwNTksImV4cCI6MTY3Mzg3MzA1OSwidHlwZSI6ImFjY2VzcyJ9.rxA1CMsswcKS80iv6IEhaq7IWp3O_54CterYxVUTOjM
         description: ""
     authentication: {}
     metaSortKey: -1672909150672
@@ -169,9 +169,9 @@ resources:
     _type: request
   - _id: req_6d426e5bd8e4494b870035d3ec4698d1
     parentId: fld_b648b0839d4d433989df138393e60836
-    modified: 1672915265213
+    modified: 1673009102768
     created: 1672912467228
-    url: "{{ _.url }}/v1/images/63b6a93d56df1d52a734dd29"
+    url: "{{ _.url }}/v1/images/63b817c84890863427b923bf"
     name: GetImage
     description: ""
     method: GET
@@ -181,7 +181,7 @@ resources:
       - id: pair_11c6f921fb2641b0b55a666ee73b87f3
         name: Authorization
         value: Bearer
-          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ODJiZGRiNjNhNmFjMDAzYzUyMmQiLCJpYXQiOjE2NzI5MTEzOTgsImV4cCI6MTY3Mzc3NTM5OCwidHlwZSI6ImFjY2VzcyJ9.8eikPLOedA9pT2SdcBdF1yYqSaiX3QXEHaEJe4aLuPs
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzMwMDkwNTksImV4cCI6MTY3Mzg3MzA1OSwidHlwZSI6ImFjY2VzcyJ9.rxA1CMsswcKS80iv6IEhaq7IWp3O_54CterYxVUTOjM
         description: ""
     authentication: {}
     metaSortKey: -1672909150622
@@ -193,6 +193,75 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: req_a8aecb0c98654fa0be9d0b7c45490ed1
+    parentId: fld_b648b0839d4d433989df138393e60836
+    modified: 1673009106490
+    created: 1673008918155
+    url: "{{ _.url }}/v1/images/63b817c84890863427b923bf"
+    name: DeleteImage
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers:
+      - id: pair_45a0937e990e43f09dbbaaa6ebaf60f4
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzMwMDkwNTksImV4cCI6MTY3Mzg3MzA1OSwidHlwZSI6ImFjY2VzcyJ9.rxA1CMsswcKS80iv6IEhaq7IWp3O_54CterYxVUTOjM
+        description: ""
+    authentication: {}
+    metaSortKey: -1672909150572
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3152951f672b4344a7ff42e495ad3d1f
+    parentId: fld_0a51d0339d894b418203aa14a4c30abc
+    modified: 1673009271928
+    created: 1673009180914
+    url: "{{ _.url }}/v1/users/63b6d224d4c974c7ab6e81f2"
+    name: UpdateUser
+    description: ""
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Test2"
+        }
+    parameters: []
+    headers:
+      - id: pair_163f9d26b0b64d0da101369a7cf6fb11
+        name: Authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2M2I2ZDIyNGQ0Yzk3NGM3YWI2ZTgxZjIiLCJpYXQiOjE2NzMwMDkwNTksImV4cCI6MTY3Mzg3MzA1OSwidHlwZSI6ImFjY2VzcyJ9.rxA1CMsswcKS80iv6IEhaq7IWp3O_54CterYxVUTOjM
+        description: ""
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1673009180914
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0a51d0339d894b418203aa14a4c30abc
+    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
+    modified: 1672905261805
+    created: 1672905261805
+    name: Auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1672905261805
+    _type: request_group
   - _id: req_2b7646a2a1074cd69159ed12d64a97e3
     parentId: fld_0a51d0339d894b418203aa14a4c30abc
     modified: 1672905426168
@@ -223,16 +292,6 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_0a51d0339d894b418203aa14a4c30abc
-    parentId: wrk_81557c150fd64c4d8eec589805fe9dfe
-    modified: 1672905261805
-    created: 1672905261805
-    name: Auth
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1672905261805
-    _type: request_group
   - _id: req_a27da4ed2bd4486396a7b263dabde76d
     parentId: fld_0a51d0339d894b418203aa14a4c30abc
     modified: 1672905468067
@@ -318,7 +377,7 @@ resources:
     _type: api_spec
   - _id: env_f21136077d0742c5a5b17918642df6cf
     parentId: env_24b42c4bf80472a041a1cacc1640c918841be6ff
-    modified: 1672905254044
+    modified: 1673009044983
     created: 1672905247770
     name: Local
     data:
@@ -329,4 +388,18 @@ resources:
     color: null
     isPrivate: false
     metaSortKey: 1672905247770
+    _type: environment
+  - _id: env_2a019c9f02c14e3499c63256ddd7e7ef
+    parentId: env_24b42c4bf80472a041a1cacc1640c918841be6ff
+    modified: 1672933376252
+    created: 1672932857967
+    name: Prod
+    data:
+      url: http://217.160.51.173:5123
+    dataPropertyOrder:
+      "&":
+        - url
+    color: null
+    isPrivate: false
+    metaSortKey: 1672932857968
     _type: environment

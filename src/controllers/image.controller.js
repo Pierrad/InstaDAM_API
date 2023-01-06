@@ -24,6 +24,11 @@ const getImage = catchAsync(async (req, res) => {
   });
 });
 
+const deleteImage = catchAsync(async (req, res) => {
+  await imageService.deleteImageById(req.params.imageId);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
 const getImagesByGeolocation = catchAsync(async (req, res) => {
   const images = await imageService.getImagesByGeolocation(req.body);
   const imagesWithImageData = [];
@@ -63,6 +68,7 @@ const getImagesByUserId = catchAsync(async (req, res) => {
 module.exports = {
   uploadImage,
   getImage,
+  deleteImage,
   getImagesByGeolocation,
   getImagesByUserId,
 };

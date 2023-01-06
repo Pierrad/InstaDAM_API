@@ -1,4 +1,5 @@
 const httpStatus = require('http-status');
+const fs = require('fs');
 const Image = require('../models/image.model');
 const ApiError = require('../utils/ApiError');
 
@@ -23,6 +24,14 @@ const getImageById = async (imageId) => {
     throw new ApiError(httpStatus.NOT_FOUND, 'Image not found');
   }
   return image;
+};
+
+const deleteImageById = async (imageId) => {
+  const image = await getImageById(imageId);
+  const { path } = image;
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
+  fs.unlinkSync(path);
+  await image.remove();
 };
 
 const getImagesByGeolocation = async (geolocation) => {
@@ -50,6 +59,7 @@ const getImagesByUserId = async (userId) => {
 module.exports = {
   uploadImage,
   getImageById,
+  deleteImageById,
   getImagesByGeolocation,
   getImagesByUserId,
 };
