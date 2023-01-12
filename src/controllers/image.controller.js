@@ -31,6 +31,7 @@ const deleteImage = catchAsync(async (req, res) => {
 
 const getImagesByGeolocation = catchAsync(async (req, res) => {
   const images = await imageService.getImagesByGeolocation(req.body);
+  const totalPage = await imageService.getTotalPagesByGeolocation(req.body);
   const imagesWithImageData = [];
   for (let i = 0; i < images.length; i += 1) {
     const image = images[i];
@@ -38,6 +39,7 @@ const getImagesByGeolocation = catchAsync(async (req, res) => {
     const base64 = Buffer.from(bitmap).toString('base64');
     const user = await userService.getUserById(image.userId);
     imagesWithImageData.push({
+      id: image._id,
       name: image.name,
       description: image.description,
       geolocation: image.geolocation,
@@ -47,7 +49,10 @@ const getImagesByGeolocation = catchAsync(async (req, res) => {
       },
     });
   }
-  res.send(imagesWithImageData);
+  res.send({
+    images: imagesWithImageData,
+    totalPage,
+  });
 });
 
 const getImagesByUserId = catchAsync(async (req, res) => {
