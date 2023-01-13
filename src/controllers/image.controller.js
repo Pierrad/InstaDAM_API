@@ -60,12 +60,13 @@ const getImagesByUserId = catchAsync(async (req, res) => {
   const imagesWithImageData = [];
   for (let i = 0; i < images.length; i += 1) {
     const image = images[i];
-    const imageData = fs.readFileSync(image.path);
+    const bitmap = fs.readFileSync(image.path);
+    const base64 = Buffer.from(bitmap).toString('base64');
     imagesWithImageData.push({
       name: image.name,
       description: image.description,
       geolocation: image.geolocation,
-      image: imageData,
+      image: base64,
     });
   }
   res.send(imagesWithImageData);
