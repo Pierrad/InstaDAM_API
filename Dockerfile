@@ -10,12 +10,8 @@ USER root
 
 RUN yarn global add pm2
 
-USER node
-
 RUN yarn install --pure-lockfile
 
-COPY --chown=node:node . .
-
-RUN chmod -R 777 /usr/instadam/storage
+COPY --chown=root:root . .
 
 EXPOSE 5123
