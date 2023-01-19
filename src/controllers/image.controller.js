@@ -63,6 +63,7 @@ const getImagesByUserId = catchAsync(async (req, res) => {
     const bitmap = fs.readFileSync(image.path);
     const base64 = Buffer.from(bitmap).toString('base64');
     imagesWithImageData.push({
+      id: image._id,
       name: image.name,
       description: image.description,
       geolocation: image.geolocation,
